@@ -24,20 +24,59 @@ const init = async () => {
     type: 'list',
     message: 'What would you like to do?',
     choices: [
-      'View all departments',
-      'View all roles',
-      'View all employees',
-      'View all employees by manager',
-      'View all employees by department',
-      'View total utilized budget of a department',
-      'Add a department',
-      'Add a role',
-      'Add an employee',
-      "Update employee's role",
-      "Update employee's manager",
-      'Delete department',
-      'Delete role',
-      'Delete employee',
+      new inquirer.Separator(View),
+      { name: 'View all departments', value: 'viewAllDepartments' },
+      { name: 'View all roles', value: 'viewAllRoles' },
+      { name: 'View all employees', value: 'viewAllEmployees' },
+      // prettier-ignore
+      { name: 'View all employees by manager', value: 'viewEmployeesByManager'},
+      // prettier-ignore
+      { name: 'View all employees by department', value: 'viewEmployeesByDept'},
+      // prettier-ignore
+      { name: 'View total utilized budget of a department', value: 'viewTotalBudgetByDept'},
+      new inquirer.Separator(Add),
+      { name: 'Add a department', value: 'addDepartment' },
+      { name: 'Add a role', value: 'addRole' },
+      { name: 'Add an employee', value: 'addEmployee' },
+      new inquirer.Separator(Update),
+      { name: "Update employee's role", value: 'updateEmployeeRole' },
+      { name: "Update employee's manager", value: 'updateEmployeeManagers' },
+      new inquirer.Separator(Delete),
+      { name: 'Delete department', value: 'deleteDepartment' },
+      { name: 'Delete role', value: 'deleteRole' },
+      { name: 'Delete employee', value: 'deleteEmployee' },
     ],
   });
+
+  const { choice } = mainMenuAwait;
+  switch (choice) {
+    case 'viewAllDepartments':
+      break;
+    case 'viewAllRoles':
+      break;
+    case 'viewAllEmployees':
+      break;
+    case 'viewEmployeesByManager':
+      break;
+    case 'viewEmployeesByDept':
+      break;
+    case 'viewTotalBudgetByDept':
+      break;
+    case 'addDepartment':
+      break;
+    case 'addRole':
+      break;
+    case 'addEmployee':
+      break;
+    case 'updateEmployeeRole':
+      break;
+    case 'updateEmployeeManagers':
+      break;
+    case 'deleteDepartment':
+      break;
+    case 'deleteRole':
+      break;
+    case 'deleteEmployee':
+      break;
+  }
 };
