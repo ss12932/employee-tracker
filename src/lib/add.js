@@ -1,2 +1,2 @@
 class Add {}
-module.exports = Add;
+export default Add;

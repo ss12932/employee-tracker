@@ -1,2 +1,2 @@
 class Delete {}
-module.exports = Delete;
+export default Delete;
