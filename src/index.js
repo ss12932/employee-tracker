@@ -1,9 +1,12 @@
 import inquirer from 'inquirer';
 import mysql2 from 'mysql2';
 import consoleTable from 'console.table';
-import { Add, Delete, Update, View } from './lib';
+import Add from './lib/add.js';
+import Delete from './lib/delete.js';
+import Update from './lib/update.js';
+import View from './lib/view.js';
 
-const connection = mysql.createConnection({
+const connection = mysql2.createConnection({
   host: '127.0.0.1',
   user: 'root',
   password: '',
@@ -19,12 +22,11 @@ const errorCallback = (err) => {
 connection.connect(errorCallback);
 
 const init = async () => {
-  const mainMenuAwait = await inquirer.prompt({
+  const menuAwait = await inquirer.prompt({
     name: 'choice',
     type: 'list',
     message: 'What would you like to do?',
     choices: [
-      new inquirer.Separator(View),
       { name: 'View all departments', value: 'viewAllDepartments' },
       { name: 'View all roles', value: 'viewAllRoles' },
       { name: 'View all employees', value: 'viewAllEmployees' },
@@ -34,49 +36,58 @@ const init = async () => {
       { name: 'View all employees by department', value: 'viewEmployeesByDept'},
       // prettier-ignore
       { name: 'View total utilized budget of a department', value: 'viewTotalBudgetByDept'},
-      new inquirer.Separator(Add),
       { name: 'Add a department', value: 'addDepartment' },
       { name: 'Add a role', value: 'addRole' },
       { name: 'Add an employee', value: 'addEmployee' },
-      new inquirer.Separator(Update),
       { name: "Update employee's role", value: 'updateEmployeeRole' },
       { name: "Update employee's manager", value: 'updateEmployeeManagers' },
-      new inquirer.Separator(Delete),
       { name: 'Delete department', value: 'deleteDepartment' },
       { name: 'Delete role', value: 'deleteRole' },
       { name: 'Delete employee', value: 'deleteEmployee' },
     ],
   });
 
-  const { choice } = mainMenuAwait;
+  const { choice } = menuAwait;
+
   switch (choice) {
     case 'viewAllDepartments':
+      new View(connection, init).viewAllDepartments();
       break;
     case 'viewAllRoles':
+      new View(connection, init).viewAllRoles();
       break;
     case 'viewAllEmployees':
+      new View(connection, init).viewAllEmployees();
       break;
     case 'viewEmployeesByManager':
+      new View(connection, init).viewEmployeesByManager();
       break;
     case 'viewEmployeesByDept':
+      new View(connection, init).viewEmployeesByDept();
       break;
     case 'viewTotalBudgetByDept':
-      break;
-    case 'addDepartment':
+      new View(connection, init).viewTotalBudgetByDept();
       break;
     case 'addRole':
+      new Add(connection, init).addRole();
       break;
     case 'addEmployee':
+      new Add(connection, init).addEmployee();
       break;
     case 'updateEmployeeRole':
+      new Update(connection, init).updateEmployeeRole();
       break;
     case 'updateEmployeeManagers':
+      new Update(connection, init).updateEmployeeManagers();
       break;
     case 'deleteDepartment':
+      new Delete(connection, init).deleteDepartment();
       break;
     case 'deleteRole':
+      new Delete(connection, init).deleteRole();
       break;
     case 'deleteEmployee':
+      new Delete(connection, init).deleteEmployee();
       break;
   }
 };

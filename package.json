@@ -2,7 +2,8 @@
   "name": "mysql-employee-tracker",
   "version": "1.0.0",
   "description": "## Table of Contents",
-  "main": "index.js",
+  "main": "src/index.mjs",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -20,6 +21,7 @@
   "dependencies": {
     "console.table": "^0.10.0",
     "inquirer": "^9.0.0",
-    "mysql2": "^2.3.3"
+    "mysql2": "^2.3.3",
+    "nodemon": "^2.0.19"
   }
 }

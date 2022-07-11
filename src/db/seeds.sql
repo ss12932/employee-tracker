@@ -1,0 +1,2 @@
+INSERT INTO department (name)
+VALUES ("Finance"), ("Marketing"), ("Human Resources"), ("Sales"), ("Operations"), ("Research & Development"), ("Production"), ("Customer Service"), ("IT"), ("Quality Control"), ("Logistics");
