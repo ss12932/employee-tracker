@@ -17,3 +17,27 @@ const errorCallback = (err) => {
 };
 
 connection.connect(errorCallback);
+
+const init = () => {
+  inquirer.prompt({
+    name: 'initMenu',
+    type: 'list',
+    message: 'What would you like to do?',
+    choices: [
+      'View all departments',
+      'View all roles',
+      'View all employees',
+      'View all employees by manager',
+      'View all employees by department',
+      'View total utilized budget of a department',
+      'Add a department',
+      'Add a role',
+      'Add an employee',
+      "update employee's role",
+      "update employee's manager",
+      'Delete department',
+      'Delete role',
+      'Delete employee',
+    ],
+  });
+};
