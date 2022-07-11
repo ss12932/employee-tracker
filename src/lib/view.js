@@ -11,5 +11,11 @@ class View {
       this.callback();
     });
   }
+
+  viewEmployeesByDept() {}
+  viewAllRoles() {}
+  viewAllEmployees() {}
+  viewEmployeesByManager() {}
+  viewTotalBudgetByDept() {}
 }
 export default View;
