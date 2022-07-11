@@ -18,9 +18,9 @@ const errorCallback = (err) => {
 
 connection.connect(errorCallback);
 
-const init = () => {
-  inquirer.prompt({
-    name: 'initMenu',
+const init = async () => {
+  const mainMenuAwait = await inquirer.prompt({
+    name: 'choice',
     type: 'list',
     message: 'What would you like to do?',
     choices: [
@@ -33,8 +33,8 @@ const init = () => {
       'Add a department',
       'Add a role',
       'Add an employee',
-      "update employee's role",
-      "update employee's manager",
+      "Update employee's role",
+      "Update employee's manager",
       'Delete department',
       'Delete role',
       'Delete employee',
