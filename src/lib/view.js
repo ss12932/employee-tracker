@@ -14,7 +14,13 @@ class View {
 
   viewEmployeesByDept() {}
   viewAllRoles() {}
-  viewAllEmployees() {}
+  viewAllEmployees() {
+    this.connection.query('SELECT * FROM employee', (error, results) => {
+      if (error) throw error;
+      console.table(results);
+      this.callback();
+    });
+  }
   viewEmployeesByManager() {}
   viewTotalBudgetByDept() {}
 }

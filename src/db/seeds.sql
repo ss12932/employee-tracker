@@ -1,2 +1,8 @@
 INSERT INTO department (name)
-VALUES ("Finance"), ("Marketing"), ("Human Resources"), ("Sales"), ("Operations"), ("Research & Development"), ("Production"), ("Customer Service"), ("IT"), ("Quality Control"), ("Logistics");
+VALUES ("Finance"), ("Marketing"), ("Sales"), ("Operations"), ("Research & Development"),("Human Resources");
+
+INSERT INTO role (title, salary, department_id) 
+VALUES ("Accountant", "50000", 1), ("Accounting Manager", "75000", 1), ("Auditor", '45000', 1), ("Tax Specialist", "40000", 1), ("Marketing Analyst", "50000", 2), ("Marketing Director", "75000", 2), ("Marketing Consultant", '45000', 2), ("Social Media Promoter", "40000", 2), ("Sales Manager", "150000", 3), ("Sales Analyst", "55000", 3), ("Sales Consultant", '45000', 3), ("Sales Assistant", "40000", 3), ("Operations Officer", '45000', 4), ("Operations Manager", "140000", 4), ("R&D Manager", '145000', 5), ("R&D Researcher", "100000", 5), ("Head Recruiter", '65000', 6), ("Human Resources Administrator", "50000", 6);
+
+INSERT INTO employee (first_name, last_name, role_id, manager_id)
+VALUES ("John", "Doe", 1, 2), ("Peter", "Doe", 2, null), ("Sandra", "Williams", 3, 2), ("Tony", "Stark", 4, 2), ("Michael", "Berry", 5, 6), ("Jerry", "Loughborough", 6, null), ("Emma", "Headley", 7, 6), ("Jack", "Frost", 8, 6), ("Heidi", "Patel", 9, null), ("Jack", "Dean", 10, 9), ("Sarah", "Loomley", 11, 9), ("Jackie", "Nickels", 12, 9), ("Martin", "Wood", 13, 14), ("Danielle", "Collingwood", 14, null), ("Jie", "Xixin", 15, null), ("Danny", "Lee", 16, 15), ("Michelle", "Watson", 17, null), ("Tom", "Reynolds", 18, 17);

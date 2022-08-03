@@ -1,7 +1,7 @@
-DROP DATABASE IF EXISTS ee_cms_db;
-CREATE DATABASE ee_cms_db;
+DROP DATABASE IF EXISTS employee_tracker_db;
+CREATE DATABASE employee_tracker_db;
 
-USE ee_cms_db;
+USE employee_tracker_db;
 
 CREATE TABLE department (
   id INTEGER NOT NULL AUTO_INCREMENT,
