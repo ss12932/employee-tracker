@@ -9,7 +9,7 @@ import View from './lib/view.js';
 const connection = mysql2.createConnection({
   host: '127.0.0.1',
   user: 'root',
-  password: '',
+  password: 'password123',
   database: 'ee_cms_db',
 });
 
@@ -51,43 +51,25 @@ const init = async () => {
 
   switch (choice) {
     case 'viewAllDepartments':
-      new View(connection, init).viewAllDepartments();
-      break;
     case 'viewAllRoles':
-      new View(connection, init).viewAllRoles();
-      break;
     case 'viewAllEmployees':
-      new View(connection, init).viewAllEmployees();
-      break;
     case 'viewEmployeesByManager':
-      new View(connection, init).viewEmployeesByManager();
-      break;
     case 'viewEmployeesByDept':
-      new View(connection, init).viewEmployeesByDept();
-      break;
     case 'viewTotalBudgetByDept':
-      new View(connection, init).viewTotalBudgetByDept();
+      new View(connection, init)[choice]();
       break;
     case 'addRole':
-      new Add(connection, init).addRole();
-      break;
     case 'addEmployee':
-      new Add(connection, init).addEmployee();
+      new Add(connection, init)[choice]();
       break;
     case 'updateEmployeeRole':
-      new Update(connection, init).updateEmployeeRole();
-      break;
     case 'updateEmployeeManagers':
-      new Update(connection, init).updateEmployeeManagers();
+      new Update(connection, init)[choice]();
       break;
     case 'deleteDepartment':
-      new Delete(connection, init).deleteDepartment();
-      break;
     case 'deleteRole':
-      new Delete(connection, init).deleteRole();
-      break;
     case 'deleteEmployee':
-      new Delete(connection, init).deleteEmployee();
+      new Delete(connection, init)[choice]();
       break;
   }
 };
