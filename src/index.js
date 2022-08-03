@@ -10,7 +10,7 @@ const connection = mysql2.createConnection({
   host: '127.0.0.1',
   user: 'root',
   password: 'password123',
-  database: 'ee_cms_db',
+  database: 'employee_tracker_db',
 });
 
 const errorCallback = (err) => {
