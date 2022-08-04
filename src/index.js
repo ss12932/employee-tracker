@@ -59,6 +59,7 @@ const init = async () => {
       new View(connection, init)[choice]();
       break;
     case 'addRole':
+    case 'addDepartment':
     case 'addEmployee':
       new Add(connection, init)[choice]();
       break;
