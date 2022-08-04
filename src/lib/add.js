@@ -18,7 +18,6 @@ class Add {
         },
       },
     ]);
-    console.log(addDepartment);
     this.connection.query(
       `INSERT INTO department (name) 
       VALUES ("${addDepartment.dpt_name}")`,
@@ -64,7 +63,6 @@ class Add {
             name: 'department',
             message: 'Which department should the role be assigned to?',
             choices: function () {
-              // map will return an array of objects here which will provide us a list of choices for the inquirer prompt
               return results.map((choice) => ({
                 name: `${choice.name}`,
                 value: { id: `${choice.id}`, name: `${choice.name}` },
@@ -72,7 +70,6 @@ class Add {
             },
           },
         ]);
-        console.log(addRole);
         this.connection.query(
           `INSERT INTO role (title, salary, department_id) VALUES ("${addRole.role}", "${addRole.salary}", "${addRole.department.id}");`,
           (error, results) => {

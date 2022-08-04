@@ -27,7 +27,6 @@ class View {
             type: 'list',
             message: 'Please select one of the following departments:',
             choices: function () {
-              // map will return an array of objects here which will provide us a list of choices for the inquirer prompt
               return results.map((choice) => ({
                 name: `${choice.department}`,
                 value: choice.id,
@@ -35,7 +34,6 @@ class View {
             },
           },
         ]);
-        console.log(choice);
         this.connection.query(
           `SELECT employee.id, employee.first_name, employee.last_name, role.title, role.salary, department.name AS department FROM employee LEFT JOIN role ON employee.role_id = role.id LEFT JOIN department ON role.department_id = department.id WHERE department.id = ${choice.department_id}`,
           (error, results) => {
@@ -71,8 +69,6 @@ class View {
     this.connection.query(
       'SELECT employee.id, CONCAT(employee.first_name, " ", employee.last_name) AS manager, department.name AS department  FROM employee LEFT JOIN role ON employee.role_id = role.id LEFT JOIN department ON role.department_id = department.id LEFT JOIN employee AS manager ON employee.manager_id = manager.id WHERE employee.manager_id IS NULL',
       async (error, results) => {
-        // array of objects
-        // console.log(results);
         if (error) throw error;
         const choice = await inquirer.prompt([
           {
@@ -80,7 +76,6 @@ class View {
             type: 'list',
             message: 'Please select one of the following managers:',
             choices: function () {
-              // map will return array of objects here which will provide us for choice property in inquirer prompt
               return results.map((choice) => ({
                 name: `${choice.manager} (${choice.department})`,
                 value: choice.id,
@@ -119,7 +114,6 @@ class View {
             },
           },
         ]);
-        console.log(choice);
         this.connection.query(
           `SELECT role.department_id, department.name, SUM(role.salary) AS total_util_budget FROM role LEFT JOIN department ON role.department_id = department.id WHERE role.department_id = ${choice.department_budget}`,
           (error, results) => {
