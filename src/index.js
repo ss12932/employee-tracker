@@ -1,3 +1,4 @@
+import 'dotenv/config';
 import inquirer from 'inquirer';
 import mysql2 from 'mysql2';
 import consoleTable from 'console.table';
@@ -7,9 +8,9 @@ import Update from './lib/update.js';
 import View from './lib/view.js';
 
 const connection = mysql2.createConnection({
-  host: '127.0.0.1',
-  user: 'root',
-  password: 'password123',
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
   database: 'employee_tracker_db',
 });
 
