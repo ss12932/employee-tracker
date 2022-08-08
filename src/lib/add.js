@@ -87,7 +87,6 @@ class Add {
     this.connection.query(
       `SELECT role.*, employee.manager_id, CONCAT(employee.first_name, " ", employee.last_name) AS manager, department.name as department FROM role LEFT JOIN employee ON employee.role_id = role.id LEFT JOIN department ON role.department_id = department.id LEFT JOIN employee AS manager ON employee.manager_id = manager.id`,
       async (error, results) => {
-        console.log(results);
         if (error) throw error;
         const addEmployee = await inquirer.prompt([
           {
