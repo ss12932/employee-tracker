@@ -69,7 +69,7 @@ class Update {
           {
             type: 'list',
             name: 'oldManager',
-            message: 'Which employee do you want to reassign manager?',
+            message: 'Which employee do you want to reassign a manager?',
             choices: function (choice) {
               return results.map((choice) => ({
                 name: `${choice.first_name} ${choice.last_name} (${choice.department})`,
@@ -86,7 +86,8 @@ class Update {
           {
             type: 'list',
             name: 'newManager',
-            message: 'Which manager do you want to assign to this employee?',
+            message: (answer) =>
+              `Which manager do you want to assign to ${answer.oldManager.first_name} ${answer.oldManager.last_name}?`,
             choices: function (choice) {
               return results.map((choice) => ({
                 name: `${choice.manager} (${choice.department})`,
