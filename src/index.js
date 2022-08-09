@@ -45,6 +45,7 @@ const init = async () => {
       { name: 'Delete department', value: 'deleteDepartment' },
       { name: 'Delete role', value: 'deleteRole' },
       { name: 'Delete employee', value: 'deleteEmployee' },
+      { name: 'Exit Application', value: 'exit' },
     ],
   });
 
@@ -73,5 +74,8 @@ const init = async () => {
     case 'deleteEmployee':
       new Delete(connection, init)[choice]();
       break;
+    case 'exit':
+      connection.end();
+      console.log(`Exiting the Employee Tracker Application...Farewell`);
   }
 };
