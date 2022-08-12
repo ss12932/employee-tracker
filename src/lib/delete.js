@@ -74,7 +74,6 @@ class Delete {
     this.connection.query(
       `SELECT e.id, e.first_name, e.last_name, department.name AS department FROM employee AS e LEFT JOIN role ON role.id = e.role_id LEFT JOIN department ON department.id = role.department_id;`,
       async (error, results) => {
-        console.log(results);
         if (error) throw error;
         const deleteEmployee = await inquirer.prompt([
           {

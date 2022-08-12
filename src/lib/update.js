@@ -9,7 +9,6 @@ class Update {
     this.connection.query(
       `SELECT e.id, e.first_name, e.last_name, r.id AS role_id, r.title, d.name as department FROM employee AS e LEFT JOIN role AS r ON r.id = e.role_id LEFT JOIN department AS d ON d.id = r.department_id;`,
       async (error, results) => {
-        console.log(results);
         if (error) throw error;
         const updateRole = await inquirer.prompt([
           {
@@ -49,7 +48,6 @@ class Update {
         this.connection.query(
           `UPDATE employee SET role_id = "${updateRole.newRole.new_role_id}" WHERE id = "${updateRole.oldRole.employee_id}";`,
           (error, results) => {
-            console.log(results);
             console.log(
               `${updateRole.oldRole.first_name} ${updateRole.oldRole.last_name} has successfully been reassigned a new role from ${updateRole.oldRole.old_role} (${updateRole.oldRole.department}) to ${updateRole.newRole.title} (${updateRole.newRole.new_dpt}).`
             );
@@ -63,7 +61,6 @@ class Update {
     this.connection.query(
       `SELECT e.id, e.first_name, e.last_name, CONCAT(e.first_name, " ", e.last_name) AS manager, e.manager_id, r.id AS role_id, r.title, d.name as department FROM employee AS e LEFT JOIN role AS r ON r.id = e.role_id LEFT JOIN department AS d ON d.id = r.department_id LEFT JOIN employee AS manager ON e.manager_id = manager.id;`,
       async (error, results) => {
-        console.log(results);
         if (error) throw error;
         const updateManager = await inquirer.prompt([
           {
@@ -104,11 +101,7 @@ class Update {
         this.connection.query(
           `UPDATE employee SET manager_id = ${updateManager.newManager.manager_emp_id} WHERE id = ${updateManager.oldManager.employee_id};`,
           (error, results) => {
-            console.log(results);
-            console.table(results);
-            console.log(
-              `${updateManager.oldManager.first_name} ${updateManager.oldManager.last_name} has successfully been reassigned a new manager from ${updateManager.oldManager.old_manager} (manager of ${updateManager.oldManager.department}) to ${updateManager.newManager.new_manager} (manager of ${updateManager.newManager.new_dpt}).`
-            );
+            `${updateManager.oldManager.first_name} ${updateManager.oldManager.last_name} has successfully been reassigned a new manager from ${updateManager.oldManager.old_manager} (manager of ${updateManager.oldManager.department}) to ${updateManager.newManager.new_manager} (manager of ${updateManager.newManager.new_dpt}).`;
           }
         );
         this.callback();
