@@ -6,7 +6,8 @@ class Delete {
     this.callback = callback;
   }
   deleteDepartment() {
-    this.connection.query('SELECT * FROM department'),
+    this.connection.query(
+      'SELECT * FROM department',
       async (error, results) => {
         if (error) throw error;
         const deleteDpt = await inquirer.prompt([
@@ -17,23 +18,24 @@ class Delete {
               'Please select the department you would like to delete. Please note: This action is PERMANENT.',
             choices: function (choice) {
               return results.map((choice) => ({
-                name: choice.title,
+                name: choice.name,
                 value: { id: choice.id, name: choice.name },
               }));
             },
           },
         ]);
         this.connection.query(
-          `DELETE FROM role WHERE id = ${deleteRole.role.id}`,
+          `DELETE FROM department WHERE id = ${deleteDpt.department.id}`,
           (error, results) => {
             if (error) throw error;
             console.log(
-              `"${deleteRole.role.title}" has been permanently deleted from the Employee Tracker Database.`
+              `"${deleteDpt.department.name}" has been permanently deleted from the Employee Tracker Database.`
             );
             this.callback();
           }
         );
-      };
+      }
+    );
   }
   deleteRole() {
     this.connection.query(

@@ -117,3 +117,15 @@ class Update {
   }
 }
 export default Update;
+
+const formatMoney = (money) => {
+  return money.match(
+    new RegExp(`(?!^)(?=(\\d{3})+${money.includes('.') ? '\\.' : '$'})`, 'g')
+  );
+};
+
+formatMoney('100000000');
+
+'/Jack(?=Sprat)/'.match();
+'JackSprat'.match(/Jack(?=Sprat)/);
+'100000'.match(/(?!^)(?=(\\d{3})+$)/g);

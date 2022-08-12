@@ -23,6 +23,13 @@ https://github.com/ss12932/employee-tracker
 
 ## Video Walkthrough Link
 
+Due to Screencastify's 5 minute limit on the videos, I have to split the video into 4 parts. Sorry for the inconvenience!
+
+- [Part 1 Video Walkthrough](https://drive.google.com/file/d/1boaf6vZDiZq_7hbBd8N-H3I6wI3Yqm_9/view)
+- [Part 2 Video Walkthrough](https://drive.google.com/file/d/1wtLr31nGubKaXHyFLYuxSM4gjSHEOMB8/view)
+- [Part 3 Video Walkthrough](https://drive.google.com/file/d/1qvOq0kPjl1gat7E2bbmvv2SG1nwPQjtV/view)
+- [Part 4 Video Walkthrough](https://drive.google.com/file/d/1AWgzpNRfa2MFcvYh29cV5ZkPJbmtEH-e/view)
+
 ## Screenshot
 
 ![cms-screenshot](./public/assets/images/cms_screenshot.png)
@@ -30,6 +37,9 @@ https://github.com/ss12932/employee-tracker
 ## Installation
 
 Please follow the instructions below:
+Before installation of this application, please ensure you have the MySQL database installed on your local machine. If you don't have it, please refer to the documentation on the official MySQL website:
+
+https://dev.mysql.com/doc/mysql-shell/8.0/en/mysql-shell-install.html
 
 This requires the use of your command line terminal, navigate to your local directory of choice and perform a git clone of this application:
 
