@@ -23,7 +23,7 @@ https://github.com/ss12932/employee-tracker
 
 ## Video Walkthrough Link
 
-Due to Screencastify's 5 minute limit on the videos, I have to split the video into 4 parts. Sorry for the inconvenience!
+Due to Screencastify's 5 minute limit on the videos, I have to split the video into 3 parts:
 
 - [Part 1 Video Walkthrough](https://drive.google.com/file/d/1boaf6vZDiZq_7hbBd8N-H3I6wI3Yqm_9/view)
 - [Part 2 Video Walkthrough](https://drive.google.com/file/d/1wtLr31nGubKaXHyFLYuxSM4gjSHEOMB8/view)
